@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="conatiner">
+      <div id="header">
+        <nav>
+          <div class="nav-wrapper">
+            <a href="#" class="brand-logo">ToDoApp</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down conatiner">
+              <li>
+                <a
+                  class="waves-effect waves-light btn"
+                  href="{% url 'loggedin:addtask' %}"
+                  >Add Task</a
+                >
+              </li>
+              <li>
+                <a
+                  class="waves-effect waves-light btn"
+                  href="{% url 'loggedin:signout' %}"
+                  >Logout</a
+                >
+              </li>
+              <!-- <li>
+                <a
+                  class="waves-effect waves-light valign-wrapper"
+                  href="{% url 'general:signup' %}"
+                >
+                  <img
+                    alt=""
+                    class="circle valign-wrapper responsive-img"
+                    style="background-image: url('{{ x }}');height: 45px; width: 45px"
+                  />
+                </a>
+              </li> -->
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <!-- <main class="container offset-s6 white-text  card teal lighten-2"> -->
+      <div class="row center">
+        <table>
+          <thead>
+            <tr>
+              <th>Tasks</th>
+              <th>Item Name</th>
+              <th>Item Price</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {% for x in v %}
+            <tr>
+              <td>{{ x.task }}</td>
+              <td>
+                <a class="waves-effect waves-light btn green" href="{% url 'loggedin:midupdate' x.id %}">Update</a>
+              </td>
+              <td>
+                <a class="waves-effect waves-light btn red" href="{% url 'loggedin:delete' x.id %}">Delete</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <footer></footer>
+      </div>
+    </div>
+  </body>
+</html>

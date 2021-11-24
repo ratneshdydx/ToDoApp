@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="conatiner">
+      <div id="header">
+        <nav>
+          <div class="nav-wrapper">
+            <a href="#" class="brand-logo">ToDoApp</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down conatiner">
+              <!-- <li>
+                <a
+                class="waves-effect waves-light btn"
+                href="{% url 'general:signup' %}"
+                >Add Task</a
+              >
+                </li> -->
+              <li>
+                <a
+                  class="waves-effect waves-light valign-wrapper"
+                  href="{% url 'general:signup' %}"
+                >
+                  <img
+                    src="C:\Users\Ritesh\Pictures\Video Projects\abc.jpg"
+                    alt=""
+                    class="circle valign-wrapper responsive-img"
+                    style="height: 45px; width: 45px"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <!-- <main class="container offset-s6 white-text  card teal lighten-2"> -->
+      <div class="row container col s3 center">
+        <form
+          class="col s6 offset-s3 card"
+          action="{% url 'loggedin:update' v.id %}"
+          method="POST"
+        >
+          {% csrf_token %}
+          <h2 class="center">Add Task</h2>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="task" type="text" class="validate" name="task" value='{{ v.task }}'/>
+              <label for="task">Task</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <button
+                class="btn waves-effect waves-light"
+                type="submit"
+                name="action"
+              >
+                Submit
+                <i class="material-icons right">send</i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <footer></footer>
+    </div>
+  </body>
+</html>
